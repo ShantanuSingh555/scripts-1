@@ -1,4 +1,7 @@
-#!/bin/bash  
+#!/bin/bash
+#usage:
+#	Place in root directory of build folder and
+#        bash uploadrom.sh devicecodename gdrive/afh
 
 #get the latest zip built
 file=$(ls out/target/product/$1/*201*.zip | tail -n 1)
