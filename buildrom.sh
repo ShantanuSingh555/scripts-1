@@ -13,7 +13,8 @@ source build/envsetup.sh
 #build rom and log the build
 brunch $1 |& tee build.log
 
-if [ $(grep -c "### make failed" build.log) = 0 ]; then
+#check if the build has completed
+if [ $(grep -c "#### make completed successfully" build.log) = 1 ]; then
 
 	#get the latest zip built
 	file=$(ls out/target/product/$1/*201*.zip | tail -n 1)
