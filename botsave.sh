@@ -1,3 +1,4 @@
+#usage: bash botsave.sh codename
 git clone https://github.com/BootleggersROM/BootleggersROM.github.io .tmp/
 
 devmaintainer=$(grep devmaintainer .tmp/_devicelist/$1.md | cut -d' ' -f2)
