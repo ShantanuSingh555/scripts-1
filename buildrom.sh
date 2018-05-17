@@ -1,7 +1,7 @@
 #!/bin/bash
 #usage:
 #	Place in root directory of build folder and
-#        bash buildrom.sh devicecodename gdrive/afh
+#        bash buildrom.sh devicecodename gdrive/afh -q
 
 #prepare the environment
 rm -rf venv
@@ -34,6 +34,8 @@ if [ $(grep -c "### make failed" build.log) = 0 ]; then
 	fi
 
 else
-	#let the boys know it's time to sleep
-	telegram-send "#blamemerothh"
+	#if quiet option isn't specified, send status
+		if [ "$3" != "-q" ]; then
+			telegram-send "Build Failed"
+		fi
 fi
